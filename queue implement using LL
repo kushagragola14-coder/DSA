@@ -1,0 +1,58 @@
+ 
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+struct Node *F;
+struct Node *R;
+
+// Insert an element
+void enqueue(int y) {
+    struct Node *newNode =
+        (struct Node *)malloc(sizeof(struct Node));
+ 
+    newNode->data = y;
+    newNode->next = NULL;
+
+    if (F == NULL) {
+        F = R = newNode;
+    } else {
+        R->next = newNode;
+        R = newNode;
+    }
+}
+
+
+int dequeue() {
+    int x=-1;
+      struct Node *p;
+    if (F == NULL) {
+        printf("Queue Underflow\n");
+          
+    }
+
+   else
+   {     
+          p=F;
+          F = F->next;
+          x=p->data;
+    free(p);
+    p=NULL;
+   }
+   return x;
+}
+
+  
+void main() {
+    
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    dequeue();
+    dequeue();
+    dequeue();
+}
