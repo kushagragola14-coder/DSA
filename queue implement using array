@@ -1,0 +1,37 @@
+  #include <stdio.h>
+#define SIZE 5
+
+int Q[SIZE];
+int f = -1,r=-1;
+
+void enqueue(int x) {
+    if (r== SIZE - 1) {
+        printf("Queue Overflow\n");
+    } else {
+        r=r+1;
+        Q[r]=x;
+        if (f== -1)
+            f = 0; 
+    }
+   }
+
+void dequeue() {
+    if (f == -1 && r==-1) {
+        printf("Queue Underflow\n");
+    } else {
+        printf("%d deleted\n",Q[f]);
+        f++;
+    }
+}
+int main()
+{
+     enqueue(10);
+     enqueue(20);
+     enqueue(30);
+     enqueue(40);
+     enqueue(50);
+     dequeue();
+     dequeue();
+     enqueue(10);
+
+}
